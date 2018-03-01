@@ -1,0 +1,18 @@
+
+
+dpkg -i libxp6_1.0.2-1ubuntu1_i386.deb  
+apt-get -f install -y  && figlet install -f 
+sudo apt-get install libxm4:i386 libuil4:i386 libmrm4:i386 libxm4 libuil4 libmrm4 libmotif-common -y
+
+sudo nano /var/lib/dpkg/info/icaclient.postinst
+
+echo $Arch|grep "i[0-9]86" >/dev/null
+
+Replace with
+echo $Arch|grep -E "i[0-9]86|x86_64" >/dev/null
+
+save and exit
+
+
+sudo dpkg --configure icaclient
+
